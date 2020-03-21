@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+
+    <link rel="stylesheet" href="/static/lib/weui.min.css" />
+    <link rel="stylesheet" href="/static/css/jquery-weui.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+      {% block title %}
+         <meta name="description" content=""/>
+      {% endblock %}
+  </head>
+
+  <body ontouchstart class="container">
+    {% block centent %}
+
+    {% endblock %}
+
+
+
+
+    <script src="/static/lib/jquery-2.1.4.js"></script>
+    <script src="/static/lib/fastclick.js"></script>
+    <script src="/static/js/jquery-weui.js"></script>
+    <script>
+      $(function() {
+        FastClick.attach(document.body);
+      });
+
+      {% if messages %}
+          {% for a in messages %}
+             $.toptip('{{ a }}', '{{ a.tags }}');
+          {% endfor %}
+      {% endif %}
+        $('.wy-header-icon-back').click(function () {
+           history.go(-1)
+        })
+    </script>
+
+    {% block foot %}
+
+    {% endblock %}
+
+  </body>
+</html>
